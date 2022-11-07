@@ -30,7 +30,7 @@ public class sysUserRegisterImpl implements sysUserRegister {
     }
 
     @Override
-    public void insertUserInfo(sys_user sys) {
+    public String insertUserInfo(sys_user sys) {
         if(!sys_userMapper.findAllId(sys.getUsername()).isEmpty()) {
             throw new BusinessException("账号已被使用!");
         }
@@ -39,5 +39,19 @@ public class sysUserRegisterImpl implements sysUserRegister {
         }
         checkInfoLegal(sys.getUsername(),sys.getPassword(),sys.getNickname());
         sys_userMapper.insertInfo(sys);
+        return "registerOK";
+    }
+
+    @Override
+    public String userLogin(sys_user sys) {
+        List<sys_user> userPwd = sys_userMapper.findUserPwd(sys.getUsername());
+        if(userPwd.isEmpty()) {
+            throw new BusinessException("没有此账号!");
+        }
+        if(sys.getPassword().equals(userPwd.get(0).getPassword())){
+            return "LoginOK";
+        }else{
+            throw new BusinessException("密码错误!");
+        }
     }
 }

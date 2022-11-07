@@ -17,4 +17,6 @@ public interface sys_userMapper {
     List<sys_user> findAllId(@Param("username") String username);
     //检查昵称是否重复
     List<sys_user> findAllName(@Param("nickname") String nickname);
+    //登录通过账号检查密码
+    List<sys_user> findUserPwd(@Param("username") String username);
 }

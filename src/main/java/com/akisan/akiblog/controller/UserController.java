@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@Api(tags = "用户模块 暂定登录部分")
+@Api(tags = "用户模块 暂定登录注册部分")
 public class UserController {
 
     @Autowired
@@ -26,9 +26,16 @@ public class UserController {
     public List<sys_user> index(){
         return sys_userMapper.findAll();
     }
+
     @PostMapping("/register")
     @ApiOperation(value = "用户 - 注册")
-    public void insertInfo(@RequestBody sys_user sys_user){
-        sysUserRegister.insertUserInfo(sys_user);
+    public String insertInfo(@RequestBody sys_user sys_user){
+        return sysUserRegister.insertUserInfo(sys_user);
+    }
+
+    @PostMapping("/login")
+    @ApiOperation(value = "用户 - 登录")
+    public String userLogin(@RequestBody sys_user sys_user){
+        return sysUserRegister.userLogin(sys_user);
     }
 }

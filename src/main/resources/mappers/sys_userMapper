@@ -33,4 +33,11 @@
             and nickname = #{nickname}
         </if>
     </select>
+
+    <select id="findUserPwd" parameterType="String" resultMap="BaseResultMap">
+        SELECT password FROM sys_user WHERE 1=1
+        <if test="username != null">
+            and username = #{username}
+        </if>
+    </select>
 </mapper>
