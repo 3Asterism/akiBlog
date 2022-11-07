@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8
+    username: root
+    password: root
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+mybatis:
+  config-location: classpath:mybatis-config
+  mapper-locations: classpath:mappers/*
+  type-aliases-package: com.akisan.akiblog.entity
+
+mybatis-plus:
+  mapper-locations:
+    - classpath:mappers/*
+  #实体类别名配置
+  type-aliases-package: com.akisan.akiblog.entity
+  #日志配置
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

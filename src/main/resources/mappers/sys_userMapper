@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.sys_userMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_user">
+        <id column="userid" property="userid" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="nickname" property="nickname" />
+        <result column="email" property="email" />
+        <result column="phonenum" property="phonenum" />
+        <result column="address" property="address" />
+        <result column="registertime" property="registertime" />
+    </resultMap>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT * FROM sys_user
+    </select>
+
+    <insert id="insertInfo">
+        INSERT INTO sys_user(username,password,nickname) VALUES (#{sys_user.username},#{sys_user.password},#{sys_user.nickname})
+    </insert>
+
+    <select id="findAllId" parameterType="String" resultMap="BaseResultMap">
+        SELECT username FROM sys_user WHERE 1=1
+        <if test="username != null">
+            and username = #{username}
+        </if>
+    </select>
+
+    <select id="findAllName" parameterType="String" resultMap="BaseResultMap">
+        SELECT nickname FROM sys_user WHERE 1=1
+        <if test="nickname != null">
+            and nickname = #{nickname}
+        </if>
+    </select>
+</mapper>
