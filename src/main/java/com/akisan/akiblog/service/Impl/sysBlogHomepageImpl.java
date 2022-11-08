@@ -2,6 +2,7 @@ package com.akisan.akiblog.service.Impl;
 
 import com.akisan.akiblog.entity.sys_blog;
 import com.akisan.akiblog.mapper.sys_blogMapper;
+import com.akisan.akiblog.pojo.getFuzzySearchInfo;
 import com.akisan.akiblog.service.sysBlogHomepage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,10 @@ public class sysBlogHomepageImpl implements sysBlogHomepage {
     @Override
     public List<sys_blog> showAllBlog() {
         return sysBlogMapper.searchAllBlog();
+    }
+
+    @Override
+    public List<sys_blog> fuzzySearchBlogByTitle(getFuzzySearchInfo getFuzzySearchInfo) {
+        return sysBlogMapper.fuzzySearchBlog(getFuzzySearchInfo);
     }
 }

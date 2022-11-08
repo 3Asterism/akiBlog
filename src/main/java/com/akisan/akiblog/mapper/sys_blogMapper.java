@@ -1,6 +1,7 @@
 package com.akisan.akiblog.mapper;
 
 import com.akisan.akiblog.entity.sys_blog;
+import com.akisan.akiblog.pojo.getFuzzySearchInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,4 +19,6 @@ public interface sys_blogMapper {
     void reformBlog(@Param("sys_blog") sys_blog sys_blog);
     //查找博客
     List<sys_blog> searchBlog(@Param("sys_blog") sys_blog sys_blog);
+    //通过标题模糊搜索博客
+    List<sys_blog> fuzzySearchBlog(@Param("getFuzzySearchInfo") getFuzzySearchInfo getFuzzySearchInfo);
 }

@@ -26,7 +26,7 @@ public class BlogEditorController {
     }
 
     @DeleteMapping("/deleteBlog")
-    @ApiOperation(value = "删除博客")
+    @ApiOperation(value = "通过blogid删除博客")
     public resultForRequest deleteBlog(@RequestBody sys_blog sys_blog) {
         sysBlogEditPage.deleteBlog(sys_blog);
         return resultForRequest.success();

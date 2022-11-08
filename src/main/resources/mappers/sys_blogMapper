@@ -37,4 +37,8 @@
             AND userid = #{sys_blog.userid}
         </if>
     </select>
+
+    <select id="fuzzySearchBlog" resultMap="BaseResultMap">
+        SELECT * FROM sys_blog WHERE blogtitle LIKE CONCAT('%',#{getFuzzySearchInfo.searchContent},'%')
+    </select>
 </mapper>
