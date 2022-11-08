@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.sys_blogMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_blog">
+        <id column="userid" property="userid" />
+        <result column="blogcontent" property="blogcontent" />
+        <result column="createtime" property="createtime" />
+    </resultMap>
+
+    <select id="searchAllBlog" resultMap="BaseResultMap">
+        SELECT * FROM sys_blog
+    </select>
+</mapper>

@@ -2,10 +2,11 @@ package com.akisan.akiblog.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 @ApiModel(description = "用户 - 基础数据表")
@@ -37,7 +38,7 @@ public class sys_user  {
     private String address;
 
     @ApiModelProperty(value = "用户注册时间")
-    private String registertime;
+    private Date registertime;
 
     @ApiModelProperty(value = "用户头像")
     private String useravatar;
