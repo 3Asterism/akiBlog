@@ -19,8 +19,8 @@
 
     <delete id="deleteBlog">
         DELETE FROM sys_blog WHERE 1=1
-        <if test="sys_blog.blogid != null">
-            AND blogid = #{sys_blog.blogid}
+        <if test="sys_blog.blogId != null">
+            AND blogid = #{sys_blog.blogId}
         </if>
     </delete>
 
@@ -33,8 +33,8 @@
 
     <select id="searchBlog" resultMap="BaseResultMap">
         SELECT * FROM sys_blog WHERE 1=1
-        <if test="sys_blog.userid != null">
-            AND userid = #{sys_blog.userid}
+        <if test="sys_blog.userId != null">
+            AND userid = #{sys_blog.userId}
         </if>
     </select>
 

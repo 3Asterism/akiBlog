@@ -18,7 +18,7 @@
     </select>
 
     <insert id="insertInfo">
-        INSERT INTO sys_user(username,password,nickname) VALUES (#{sys_user.username},#{sys_user.password},#{sys_user.nickname})
+        INSERT INTO sys_user(username,password,nickname) VALUES (#{sys_user.userName},#{sys_user.password},#{sys_user.nickName})
     </insert>
 
     <select id="findAllId" parameterType="String" resultMap="BaseResultMap">
@@ -37,8 +37,8 @@
 
     <select id="findUserPwd" parameterType="String" resultMap="BaseResultMap">
         SELECT password FROM sys_user WHERE 1=1
-        <if test="username != null">
-            and username = #{username}
+        <if test="userName != null">
+            and username = #{userName}
         </if>
     </select>
 </mapper>

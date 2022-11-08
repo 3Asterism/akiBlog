@@ -3,6 +3,8 @@ package com.akisan.akiblog.controller;
 import com.akisan.akiblog.common.resultForRequest;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
+import com.akisan.akiblog.pojo.userLoginInfo;
+import com.akisan.akiblog.pojo.userRegisterInfo;
 import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,15 +32,15 @@ public class UserController {
 
     @PostMapping("/register")
     @ApiOperation(value = "用户 - 注册")
-    public resultForRequest insertInfo(@RequestBody sys_user sys_user){
-        sysUserRegister.insertUserInfo(sys_user);
+    public resultForRequest insertInfo(@RequestBody userRegisterInfo userRegisterInfo){
+        sysUserRegister.insertUserInfo(userRegisterInfo);
         return resultForRequest.success();
     }
 
     @PostMapping("/userLogin")
     @ApiOperation(value = "用户 - 登录")
-    public resultForRequest userLogin(@RequestBody sys_user sys_user){
-        sysUserRegister.userLogin(sys_user);
+    public resultForRequest userLogin(@RequestBody userLoginInfo userLoginInfo){
+        sysUserRegister.userLogin(userLoginInfo);
         return resultForRequest.success();
     }
 }
