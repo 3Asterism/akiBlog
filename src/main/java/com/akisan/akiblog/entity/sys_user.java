@@ -18,7 +18,6 @@ public class sys_user  {
     private String username;
 
     @ApiModelProperty(value = "用户密码" , required = true)
-    @JsonIgnore
     private String password;
 
     @ApiModelProperty(value = "用户昵称" , required = true)

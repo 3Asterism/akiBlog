@@ -1,5 +1,6 @@
 package com.akisan.akiblog.controller;
 
+import com.akisan.akiblog.common.resultForRequest;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
 import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/login")
 @Api(tags = "用户模块 暂定登录注册部分")
 public class UserController {
 
@@ -29,13 +30,15 @@ public class UserController {
 
     @PostMapping("/register")
     @ApiOperation(value = "用户 - 注册")
-    public String insertInfo(@RequestBody sys_user sys_user){
-        return sysUserRegister.insertUserInfo(sys_user);
+    public resultForRequest insertInfo(@RequestBody sys_user sys_user){
+        sysUserRegister.insertUserInfo(sys_user);
+        return resultForRequest.success();
     }
 
-    @PostMapping("/login")
+    @PostMapping("/userLogin")
     @ApiOperation(value = "用户 - 登录")
-    public String userLogin(@RequestBody sys_user sys_user){
-        return sysUserRegister.userLogin(sys_user);
+    public resultForRequest userLogin(@RequestBody sys_user sys_user){
+        sysUserRegister.userLogin(sys_user);
+        return resultForRequest.success();
     }
 }

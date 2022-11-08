@@ -1,10 +1,10 @@
-package com.akisan.akiblog.config;
+package com.akisan.akiblog.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 
 @Data
-public class BusinessException extends RuntimeException{
+public class businessException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,27 +22,27 @@ public class BusinessException extends RuntimeException{
 
     private Throwable throwable;
 
-    public BusinessException() {
+    public businessException() {
         super();
     }
 
-    public BusinessException(String message) {
+    public businessException(String message) {
         super(message);
         this.message = message;
     }
 
-    public BusinessException(Integer code, String message) {
+    public businessException(Integer code, String message) {
         super(message);
         this.code = code;
         this.message = message;
     }
 
-    public BusinessException(String message, Throwable cause) {
+    public businessException(String message, Throwable cause) {
         super(message, cause);
         this.message = String.format("%s %s", message, cause.getMessage());
     }
 
-    public BusinessException(int code, String message, Throwable throwable) {
+    public businessException(int code, String message, Throwable throwable) {
         super(message);
         this.code = code;
         this.message = message;
@@ -57,7 +57,8 @@ public class BusinessException extends RuntimeException{
         this.code = code;
     }
 
-    @Override public String getMessage() {
+    @Override
+    public String getMessage() {
         return message;
     }
 
