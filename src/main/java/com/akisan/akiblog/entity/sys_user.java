@@ -2,6 +2,7 @@ package com.akisan.akiblog.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class sys_user  {
     private String username;
 
     @ApiModelProperty(value = "用户密码" , required = true)
+    @JsonIgnore
     private String password;
 
     @ApiModelProperty(value = "用户昵称" , required = true)
