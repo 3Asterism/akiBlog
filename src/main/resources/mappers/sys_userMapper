@@ -10,6 +10,7 @@
         <result column="phonenum" property="phonenum" />
         <result column="address" property="address" />
         <result column="registertime" property="registertime" />
+        <result column="useravatar" property="useravatar" />
     </resultMap>
 
     <select id="findAll" resultMap="BaseResultMap">

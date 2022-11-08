@@ -39,4 +39,6 @@ public class sys_user  {
     @ApiModelProperty(value = "用户注册时间")
     private String registertime;
 
+    @ApiModelProperty(value = "用户头像")
+    private String useravatar;
 }
