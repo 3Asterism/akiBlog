@@ -26,4 +26,7 @@ public class sys_blog {
     @ApiModelProperty(value = "主键id 对应博客id唯一值")
     @TableId(value = "blogid" , type = IdType.AUTO)
     private Integer blogid;
+
+    @ApiModelProperty(value = "博客内容")
+    private String blogtitle;
 }

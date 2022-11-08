@@ -6,6 +6,7 @@
         <result column="blogcontent" property="blogcontent" />
         <result column="createtime" property="createtime" />
         <result column="userid" property="userid" />
+        <result column="blogtitle" property="blogtitle" />
     </resultMap>
 
     <select id="searchAllBlog" resultMap="BaseResultMap">
@@ -13,6 +14,27 @@
     </select>
 
     <insert id="insertBlog">
-        INSERT INTO sys_blog(userid,blogcontent) VALUES (#{sys_blog.userid},#{sys_blog.blogcontent})
+        INSERT INTO sys_blog(userid,blogcontent,blogtitle) VALUES (#{sys_blog.userid},#{sys_blog.blogcontent},#{sys_blog.blogtitle})
     </insert>
+
+    <delete id="deleteBlog">
+        DELETE FROM sys_blog WHERE 1=1
+        <if test="sys_blog.blogid != null">
+            AND blogid = #{sys_blog.blogid}
+        </if>
+    </delete>
+
+    <update id="reformBlog">
+        UPDATE sys_blog
+        <set>
+            blogcontent = #{sys_blog.blogcontent}
+        </set>
+    </update>
+
+    <select id="searchBlog" resultMap="BaseResultMap">
+        SELECT * FROM sys_blog WHERE 1=1
+        <if test="sys_blog.userid != null">
+            AND userid = #{sys_blog.userid}
+        </if>
+    </select>
 </mapper>

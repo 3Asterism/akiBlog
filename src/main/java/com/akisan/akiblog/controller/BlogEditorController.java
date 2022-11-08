@@ -6,10 +6,9 @@ import com.akisan.akiblog.service.Impl.sysBlogEditPageImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/blog")
@@ -20,9 +19,29 @@ public class BlogEditorController {
     sysBlogEditPageImpl sysBlogEditPage;
 
     @PostMapping("/editBlog")
-    @ApiOperation(value = "编辑博客")
+    @ApiOperation(value = "新增博客")
     public resultForRequest editBlog(@RequestBody sys_blog sys_blog) {
         sysBlogEditPage.insertBlog(sys_blog);
         return resultForRequest.success();
+    }
+
+    @DeleteMapping("/deleteBlog")
+    @ApiOperation(value = "删除博客")
+    public resultForRequest deleteBlog(@RequestBody sys_blog sys_blog) {
+        sysBlogEditPage.deleteBlog(sys_blog);
+        return resultForRequest.success();
+    }
+
+    @PostMapping("/reformBlog")
+    @ApiOperation(value = "修改博客")
+    public resultForRequest reformBlog(@RequestBody sys_blog sys_blog) {
+        sysBlogEditPage.reformBlog(sys_blog);
+        return resultForRequest.success();
+    }
+
+    @PostMapping("/searchBlog")
+    @ApiOperation(value = "通过用户id查找博客")
+    public List<sys_blog> searchBlog(@RequestBody sys_blog sys_blog) {
+        return sysBlogEditPage.searchBlog(sys_blog);
     }
 }
