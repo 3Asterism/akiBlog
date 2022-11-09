@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class resultForRequest {
 
-    private String code;
+    private Integer code;
 
     private String msg;
 
@@ -17,7 +17,7 @@ public class resultForRequest {
 
 
     public static resultForRequest success() {
-        return new resultForRequest(errorConstants.CODE_200,"",null);
+        return new resultForRequest(errorConstants.CODE_200,"operationPass",null);
     }
 
     public static resultForRequest systemError() {
