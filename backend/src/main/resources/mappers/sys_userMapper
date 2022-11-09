@@ -11,6 +11,7 @@
         <result column="address" property="address" />
         <result column="registertime" property="registertime" />
         <result column="useravatar" property="useravatar" />
+        <result column="userrole" property="userroler" />
     </resultMap>
 
     <select id="findAll" resultMap="BaseResultMap">

@@ -42,4 +42,7 @@ public class sys_user  {
 
     @ApiModelProperty(value = "用户头像")
     private String useravatar;
+
+    @ApiModelProperty(value = "用户权限")
+    private Integer userrole;
 }

@@ -10,7 +10,7 @@
     </resultMap>
 
     <select id="searchAllBlog" resultMap="BaseResultMap">
-        SELECT * FROM sys_blog
+        SELECT * FROM sys_blog ORDER BY createtime DESC
     </select>
 
     <insert id="insertBlog">
@@ -36,9 +36,10 @@
         <if test="sys_blog.userId != null">
             AND userid = #{sys_blog.userId}
         </if>
+        ORDER BY createtime DESC
     </select>
 
     <select id="fuzzySearchBlog" resultMap="BaseResultMap">
-        SELECT * FROM sys_blog WHERE blogtitle LIKE CONCAT('%',#{getFuzzySearchInfo.searchContent},'%')
+        SELECT * FROM sys_blog WHERE blogtitle LIKE CONCAT('%',#{getFuzzySearchInfo.searchContent},'%') ORDER BY createtime DESC
     </select>
 </mapper>
