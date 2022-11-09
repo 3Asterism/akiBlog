@@ -3,6 +3,7 @@ package com.akisan.akiblog.controller;
 import com.akisan.akiblog.common.resultForRequest;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
+import com.akisan.akiblog.pojo.userLogOutInfo;
 import com.akisan.akiblog.pojo.userLoginInfo;
 import com.akisan.akiblog.pojo.userRegisterInfo;
 import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
@@ -41,6 +42,13 @@ public class UserController {
     @ApiOperation(value = "用户 - 登录")
     public resultForRequest userLogin(@RequestBody userLoginInfo userLoginInfo){
         sysUserRegister.userLogin(userLoginInfo);
+        return resultForRequest.success();
+    }
+
+    @PostMapping("/userLogOut")
+    @ApiOperation(value = "用户 - 退出")
+    public resultForRequest userLogOut(@RequestBody userLogOutInfo userLogOutInfo){
+        sysUserRegister.userLogOut(userLogOutInfo);
         return resultForRequest.success();
     }
 }

@@ -4,6 +4,7 @@ import com.akisan.akiblog.common.businessException;
 import com.akisan.akiblog.common.errorConstants;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
+import com.akisan.akiblog.pojo.userLogOutInfo;
 import com.akisan.akiblog.pojo.userLoginInfo;
 import com.akisan.akiblog.pojo.userRegisterInfo;
 import com.akisan.akiblog.service.sysUserRegister;
@@ -55,5 +56,10 @@ public class sysUserRegisterImpl implements sysUserRegister {
             throw new businessException(errorConstants.CODE_402,"密码错误!");
         }
         sys_userMapper.updateUserOnlineStatus(sys.getUserName());
+    }
+
+    @Override
+    public void userLogOut(userLogOutInfo sys) {
+        sys_userMapper.updateUserOfflineStatus(sys.getUserName());
     }
 }

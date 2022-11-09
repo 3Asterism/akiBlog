@@ -1,9 +1,11 @@
 package com.akisan.akiblog.pojo;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
+@ApiModel(description = "用户注册参数")
 public class userRegisterInfo {
 
     @ApiModelProperty(value = "用户账号")

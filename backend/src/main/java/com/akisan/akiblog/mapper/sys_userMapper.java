@@ -38,5 +38,5 @@ public interface sys_userMapper {
     void updateUserOnlineStatus(@Param("userName") String userName);
 
     //用户退出更新在线状态
-    void updateUserOfflineStatus();
+    void updateUserOfflineStatus(@Param("userName") String userName);
 }

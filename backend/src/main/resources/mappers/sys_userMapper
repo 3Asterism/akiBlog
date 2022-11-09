@@ -74,4 +74,15 @@
             AND username = #{userName}
         </if>
     </update>
+
+    <update id="updateUserOfflineStatus">
+        UPDATE sys_user
+        <set>
+            useronline = "0"
+        </set>
+        WHERE 1=1
+        <if test="userName != null">
+            AND username = #{userName}
+        </if>
+    </update>
 </mapper>
