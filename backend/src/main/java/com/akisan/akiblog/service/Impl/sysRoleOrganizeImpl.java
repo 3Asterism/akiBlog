@@ -1,27 +1,38 @@
 package com.akisan.akiblog.service.Impl;
 
-import com.akisan.akiblog.mapper.sys_userMapper;
-import com.akisan.akiblog.pojo.organizeRoleInfo;
-import com.akisan.akiblog.pojo.searchRoleInfo;
-import com.akisan.akiblog.pojo.searchRoleResult;
+import com.akisan.akiblog.entity.sys_role;
+import com.akisan.akiblog.mapper.sys_roleMapper;
+import com.akisan.akiblog.pojo.delRoleInfo;
+import com.akisan.akiblog.pojo.insertRoleInfo;
+import com.akisan.akiblog.pojo.reformRoleInfo;
 import com.akisan.akiblog.service.sysRoleOrganize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import java.util.List;
 
 @Service
 public class sysRoleOrganizeImpl implements sysRoleOrganize {
     @Autowired
-    private sys_userMapper sys_userMapper;
+    sys_roleMapper sys_roleMapper;
 
     @Override
-    public void organizeRole(organizeRoleInfo organizeRoleInfo) {
-        sys_userMapper.changeUserRole(organizeRoleInfo);
+    public void insertRole(insertRoleInfo insertRoleInfo) {
+        sys_roleMapper.insertRole(insertRoleInfo);
     }
 
     @Override
-    public searchRoleResult searchRole(searchRoleInfo searchRoleInfo) {
-        return sys_userMapper.searchRole(searchRoleInfo);
+    public void deleteRole(delRoleInfo delRoleInfo) {
+        sys_roleMapper.deleteRole(delRoleInfo);
+    }
+
+    @Override
+    public void reformRole(reformRoleInfo reformRoleInfo) {
+        sys_roleMapper.reformRole(reformRoleInfo);
+    }
+
+    @Override
+    public List<sys_role> searchAllRole() {
+        return sys_roleMapper.searchAllRole();
     }
 }

@@ -1,18 +1,13 @@
-package com.akisan.akiblog.entity;
+package com.akisan.akiblog.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Date;
 
 @Data
-public class sys_role {
-    /**
-     * 角色表 用于管理权限
-     */
+public class reformRoleInfo {
     @ApiModelProperty(value = "主键id 自增")
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     @ApiModelProperty(value = "名称")

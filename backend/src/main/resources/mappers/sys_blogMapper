@@ -2,19 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.akisan.akiblog.mapper.sys_blogMapper">
     <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_blog">
-        <id column="blogid" property="blogid" />
-        <result column="blogcontent" property="blogcontent" />
-        <result column="createtime" property="createtime" />
-        <result column="userid" property="userid" />
-        <result column="blogtitle" property="blogtitle" />
+        <id column="blogid" property="blogid"/>
+        <result column="blogcontent" property="blogcontent"/>
+        <result column="createtime" property="createtime"/>
+        <result column="userid" property="userid"/>
+        <result column="blogtitle" property="blogtitle"/>
     </resultMap>
 
     <select id="searchAllBlog" resultMap="BaseResultMap">
-        SELECT * FROM sys_blog ORDER BY createtime DESC
+        SELECT *
+        FROM sys_blog
+        ORDER BY createtime DESC
     </select>
 
     <insert id="insertBlog">
-        INSERT INTO sys_blog(userid,blogcontent,blogtitle) VALUES (#{sys_blog.userid},#{sys_blog.blogcontent},#{sys_blog.blogtitle})
+        INSERT INTO sys_blog(userid, blogcontent, blogtitle)
+        VALUES (#{sys_blog.userid}, #{sys_blog.blogcontent}, #{sys_blog.blogtitle})
     </insert>
 
     <delete id="deleteBlog">
@@ -40,6 +43,9 @@
     </select>
 
     <select id="fuzzySearchBlog" resultMap="BaseResultMap">
-        SELECT * FROM sys_blog WHERE blogtitle LIKE CONCAT('%',#{getFuzzySearchInfo.searchContent},'%') ORDER BY createtime DESC
+        SELECT *
+        FROM sys_blog
+        WHERE blogtitle LIKE CONCAT('%', #{getFuzzySearchInfo.searchContent}, '%')
+        ORDER BY createtime DESC
     </select>
 </mapper>

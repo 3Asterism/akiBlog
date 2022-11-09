@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.sys_roleMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_role">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+    </resultMap>
+    <insert id="insertRole">
+        INSERT INTO sys_role(name, description)
+        VALUES (#{insertRoleInfo.name}, #{insertRoleInfo.description})
+    </insert>
+
+    <delete id="deleteRole">
+        DELETE FROM sys_role WHERE 1=1
+        <if test="delRoleInfo.id != null">
+            AND id = #{delRoleInfo.id}
+        </if>
+    </delete>
+
+    <update id="reformRole">
+        UPDATE sys_role
+        <set>
+            name = #{reformRoleInfo.name} , description = #{reformRoleInfo.description}
+        </set>
+        WHERE id = #{reformRoleInfo.id}
+    </update>
+
+    <select id="searchAllRole" resultMap="BaseResultMap">
+        SELECT *
+        FROM sys_role
+    </select>
+</mapper>
