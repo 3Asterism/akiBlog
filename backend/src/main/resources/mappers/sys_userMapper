@@ -11,7 +11,7 @@
         <result column="address" property="address" />
         <result column="registertime" property="registertime" />
         <result column="useravatar" property="useravatar" />
-        <result column="userrole" property="userroler" />
+        <result column="userrole" property="userrole" />
     </resultMap>
 
     <select id="findAll" resultMap="BaseResultMap">
@@ -25,21 +25,39 @@
     <select id="findAllId" parameterType="String" resultMap="BaseResultMap">
         SELECT username FROM sys_user WHERE 1=1
         <if test="username != null">
-            and username = #{username}
+            AND username = #{username}
         </if>
     </select>
 
     <select id="findAllName" parameterType="String" resultMap="BaseResultMap">
         SELECT nickname FROM sys_user WHERE 1=1
         <if test="nickname != null">
-            and nickname = #{nickname}
+            AND nickname = #{nickname}
         </if>
     </select>
 
     <select id="findUserPwd" parameterType="String" resultMap="BaseResultMap">
         SELECT password FROM sys_user WHERE 1=1
         <if test="userName != null">
-            and username = #{userName}
+            AND username = #{userName}
+        </if>
+    </select>
+
+    <update id="changeUserRole">
+        UPDATE sys_user
+        <set>
+            userrole = #{organizeRoleInfo.id}
+        </set>
+        WHERE 1=1
+        <if test="organizeRoleInfo.userId != null">
+            AND userid = #{organizeRoleInfo.userId}
+        </if>
+    </update>
+
+    <select id="searchRole" resultType="com.akisan.akiblog.pojo.searchRoleResult">
+        SELECT userid , userrole FROM sys_user WHERE 1=1
+        <if test="searchRoleInfo.userId != null">
+            AND userid = #{searchRoleInfo.userId}
         </if>
     </select>
 </mapper>
