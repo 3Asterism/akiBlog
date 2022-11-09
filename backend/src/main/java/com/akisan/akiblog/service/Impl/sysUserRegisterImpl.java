@@ -54,5 +54,6 @@ public class sysUserRegisterImpl implements sysUserRegister {
         if (!sys.getPassword().equals(userPwd.get(0).getPassword())) {
             throw new businessException(errorConstants.CODE_402,"密码错误!");
         }
+        sys_userMapper.updateUserOnlineStatus(sys.getUserName());
     }
 }

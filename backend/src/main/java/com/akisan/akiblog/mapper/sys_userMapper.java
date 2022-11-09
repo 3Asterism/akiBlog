@@ -33,4 +33,10 @@ public interface sys_userMapper {
 
     //查看用户权限
     searchRoleResult searchRole(@Param("searchRoleInfo") searchRoleInfo searchRoleInfo);
+
+    //用户登录更改在线状态
+    void updateUserOnlineStatus(@Param("userName") String userName);
+
+    //用户退出更新在线状态
+    void updateUserOfflineStatus();
 }

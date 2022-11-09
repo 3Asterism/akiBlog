@@ -63,4 +63,15 @@
             AND userid = #{searchRoleInfo.userId}
         </if>
     </select>
+
+    <update id="updateUserOnlineStatus">
+        UPDATE sys_user
+        <set>
+            useronline = "1"
+        </set>
+        WHERE 1=1
+        <if test="userName != null">
+            AND username = #{userName}
+        </if>
+    </update>
 </mapper>
