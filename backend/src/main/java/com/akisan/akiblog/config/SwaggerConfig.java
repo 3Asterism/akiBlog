@@ -36,11 +36,12 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("swagger-bootstrap-ui RESTful APIs")
-                .description("swagger-bootstrap-ui")
+                .title("akiBlog")
+                .description("个人博客项目文档")
                 .termsOfServiceUrl("http://localhost:8080/")
-                .contact("developer@mail.com")
-                .version("1.0")
+                .contact("后端:842384412@qq.com Aki\n" +
+                        "前端:976875730@qq.com 蓝酱")
+                .version("0.1")
                 .build();
     }
 
