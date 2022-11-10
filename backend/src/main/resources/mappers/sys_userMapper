@@ -85,4 +85,8 @@
             AND username = #{userName}
         </if>
     </update>
+
+    <select id="searchOnlineUser" resultMap="BaseResultMap">
+        SELECT * FROM sys_user WHERE useronline = "1"
+    </select>
 </mapper>

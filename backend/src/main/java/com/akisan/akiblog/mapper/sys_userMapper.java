@@ -39,4 +39,7 @@ public interface sys_userMapper {
 
     //用户退出更新在线状态
     void updateUserOfflineStatus(@Param("userName") String userName);
+
+    //查看当前在线的用户
+    List<sys_user> searchOnlineUser();
 }

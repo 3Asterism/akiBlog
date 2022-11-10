@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/login")
 @Api(tags = "用户 - 登录注册模块")
-public class UserController {
+public class UserLoginController {
 
     @Autowired
     private sysUserRegisterImpl sysUserRegister;
