@@ -89,4 +89,14 @@
     <select id="searchOnlineUser" resultMap="BaseResultMap">
         SELECT * FROM sys_user WHERE useronline = "1"
     </select>
+
+    <select id="userSearchUserById" resultType="com.akisan.akiblog.pojo.searchUserByNameResult">
+        SELECT nickname,registertime,useravatar,userrole,useronline
+        FROM sys_user
+        WHERE 1=1
+        <if test="searchUserByNameInfo.nickName != null">
+            AND nickname LIKE CONCAT('%', #{searchUserByNameInfo.nickName}, '%')
+        </if>
+        ORDER BY registertime DESC
+    </select>
 </mapper>

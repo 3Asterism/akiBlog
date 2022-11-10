@@ -46,6 +46,6 @@ public class sys_user  {
     @ApiModelProperty(value = "用户权限")
     private Integer userrole;
 
-    @ApiModelProperty(value = "用户头像")
+    @ApiModelProperty(value = "用户在线状态")
     private String useronline;
 }

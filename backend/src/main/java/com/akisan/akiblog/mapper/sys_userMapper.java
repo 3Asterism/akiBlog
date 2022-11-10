@@ -1,10 +1,7 @@
 package com.akisan.akiblog.mapper;
 
 import com.akisan.akiblog.entity.sys_user;
-import com.akisan.akiblog.pojo.organizeRoleInfo;
-import com.akisan.akiblog.pojo.searchRoleInfo;
-import com.akisan.akiblog.pojo.searchRoleResult;
-import com.akisan.akiblog.pojo.userRegisterInfo;
+import com.akisan.akiblog.pojo.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -42,4 +39,7 @@ public interface sys_userMapper {
 
     //查看当前在线的用户
     List<sys_user> searchOnlineUser();
+
+    //用户通过用户名模糊搜索用户
+    List<searchUserByNameResult> userSearchUserById(@Param("searchUserByNameInfo") searchUserByNameInfo searchUserByNameInfo);
 }
