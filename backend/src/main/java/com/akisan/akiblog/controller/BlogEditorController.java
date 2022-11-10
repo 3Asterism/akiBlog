@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/blog")
-@Api(tags = "博客编辑页面")
+@Api(tags = "博客编辑模块")
 public class BlogEditorController {
 
     @Autowired
