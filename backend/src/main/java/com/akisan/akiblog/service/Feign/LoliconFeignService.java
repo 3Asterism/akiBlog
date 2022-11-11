@@ -1,5 +1,6 @@
 package com.akisan.akiblog.service.Feign;
 
+import com.akisan.akiblog.pojo.defaultLoliconPicInfo;
 import com.akisan.akiblog.pojo.loliconPicInfo;
 import com.akisan.akiblog.pojo.loliconPicResult;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -16,4 +17,8 @@ public interface LoliconFeignService {
     @RequestMapping(value = "/setu/v2", method = RequestMethod.POST)
     @ResponseBody
     loliconPicResult getLoliconPic(@RequestBody loliconPicInfo loliconPicInfo);
+
+    @RequestMapping(value = "/setu/v2", method = RequestMethod.POST)
+    @ResponseBody
+    loliconPicResult getLoliconPicByDefault(@RequestBody defaultLoliconPicInfo defaultLoliconPicInfo);
 }
