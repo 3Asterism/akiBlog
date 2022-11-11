@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.akisan.akiblog.common.globalConstant.checkPwdLength;
-import static com.akisan.akiblog.common.globalConstant.checkRegisterLength;
+import static com.akisan.akiblog.common.legalCheckGlobalConstant.checkPwdLength;
+import static com.akisan.akiblog.common.legalCheckGlobalConstant.checkRegisterLength;
 
 @Service
 public class sysUserRegisterImpl implements sysUserRegister {

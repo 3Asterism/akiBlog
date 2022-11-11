@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.sys_homepagemsgMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_homepagemsg">
+        <id column="msgid" property="msgid"/>
+        <result column="msgcontent" property="msgcontent"/>
+        <result column="msgcreatetime" property="msgcreatetime"/>
+    </resultMap>
+
+    <select id="searchHomePageMsgResult" resultType="com.akisan.akiblog.pojo.searchHomePageMsgResult">
+        SELECT msgcontent , msgcreatetime
+        FROM sys_homepagemsg
+        WHERE msgcreatetime = (SELECT max(msgcreatetime) FROM sys_homepagemsg)
+    </select>
+
+</mapper>

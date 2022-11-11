@@ -2,6 +2,7 @@ package com.akisan.akiblog.controller;
 
 import com.akisan.akiblog.entity.sys_blog;
 import com.akisan.akiblog.pojo.getFuzzySearchInfo;
+import com.akisan.akiblog.pojo.searchHomePageMsgResult;
 import com.akisan.akiblog.service.Impl.sysBlogHomepageImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,5 +28,11 @@ public class HomepageController {
     @ApiOperation(value = "通过标题模糊搜索博客")
     public List<sys_blog> searchBlog(@RequestBody getFuzzySearchInfo getFuzzySearchInfo) {
         return sysBlogHomepage.fuzzySearchBlogByTitle(getFuzzySearchInfo);
+    }
+
+    @GetMapping("/searchHomepageMsg")
+    @ApiOperation(value = "查询主页消息")
+    public searchHomePageMsgResult searchHomepageMsg() {
+        return sysBlogHomepage.getHomepageMsg();
     }
 }
