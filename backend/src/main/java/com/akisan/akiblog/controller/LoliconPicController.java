@@ -1,5 +1,6 @@
 package com.akisan.akiblog.controller;
 
+import com.akisan.akiblog.pojo.getFromUserLoliconInfo;
 import com.akisan.akiblog.pojo.loliconPicInfo;
 import com.akisan.akiblog.pojo.loliconPicResult;
 import com.akisan.akiblog.service.Impl.userGetLoliconPicImpl;
@@ -28,5 +29,11 @@ public class LoliconPicController {
     @ApiOperation(value = "默认参数拿图")
     public loliconPicResult getPicByDefault() {
         return userGetLoliconPic.getPicByDefault();
+    }
+
+    @PostMapping("/searchPicByEzWay")
+    @ApiOperation(value = "简化版参数拿图")
+    public loliconPicResult getPicEzSearch(getFromUserLoliconInfo getFromUserLoliconInfo) {
+        return userGetLoliconPic.getPicEzSearch(getFromUserLoliconInfo);
     }
 }

@@ -1,8 +1,6 @@
 package com.akisan.akiblog.service.Impl;
 
-import com.akisan.akiblog.pojo.defaultLoliconPicInfo;
-import com.akisan.akiblog.pojo.loliconPicInfo;
-import com.akisan.akiblog.pojo.loliconPicResult;
+import com.akisan.akiblog.pojo.*;
 import com.akisan.akiblog.service.Feign.LoliconFeignService;
 import com.akisan.akiblog.service.userGetLoliconPic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,8 @@ public class userGetLoliconPicImpl implements userGetLoliconPic {
     LoliconFeignService loliconFeignService;
     @Autowired
     defaultLoliconPicInfo defaultLoliconPicInfo;
+    @Autowired
+    searchLoliconInfo searchLoliconInfo;
     @Override
     public loliconPicResult getPicByDefault() {
         return loliconFeignService.getLoliconPicByDefault(defaultLoliconPicInfo);
@@ -22,5 +22,12 @@ public class userGetLoliconPicImpl implements userGetLoliconPic {
     @Override
     public loliconPicResult getPicBySearch(loliconPicInfo loliconPicInfo) {
         return  loliconFeignService.getLoliconPic(loliconPicInfo);
+    }
+
+    @Override
+    public loliconPicResult getPicEzSearch(getFromUserLoliconInfo getFromUserLoliconInfo) {
+        searchLoliconInfo.setR18(getFromUserLoliconInfo.getR18());
+        searchLoliconInfo.setTag(getFromUserLoliconInfo.getTag());
+        return loliconFeignService.getLoliconPicEz(searchLoliconInfo);
     }
 }
