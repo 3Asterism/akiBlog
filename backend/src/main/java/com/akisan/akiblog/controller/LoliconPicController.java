@@ -33,7 +33,7 @@ public class LoliconPicController {
 
     @PostMapping("/searchPicByEzWay")
     @ApiOperation(value = "简化版参数拿图")
-    public loliconPicResult getPicEzSearch(getFromUserLoliconInfo getFromUserLoliconInfo) {
+    public loliconPicResult getPicEzSearch(@RequestBody getFromUserLoliconInfo getFromUserLoliconInfo) {
         return userGetLoliconPic.getPicEzSearch(getFromUserLoliconInfo);
     }
 }
