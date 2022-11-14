@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.sys_user_roleMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_user_role">
+        <id column="id" property="id"/>
+        <result column="user_id" property="user_id"/>
+        <result column="role_id" property="role_id"/>
+        <result column="enabled" property="enabled"/>
+    </resultMap>
+
+    <insert id="insertUserRole">
+        INSERT INTO sys_user_role(id, user_id, role_id,enabled)
+        VALUES (#{sys_user_role.id}, #{sys_user_role.user_id}, #{sys_user_role.role_id}, #{sys_user_role.enabled})
+    </insert>
+</mapper>
