@@ -34,7 +34,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 释放静态资源，指定拦截规则，指定自定义的认证和退出页面，csrf配置等
         http.authorizeRequests()
                 // 指定拦截规则
-                .antMatchers("/home/*", "/blog/*", "/userActivity/*", "/findAll/*","/lolicon/*").permitAll()  //释放这些资源，不拦截
+                .antMatchers("/home/*", "/blog/*", "/userActivity/*", "/findAll/*","/lolicon/*","/login/* " ).permitAll()  //释放这些资源，不拦截
                 .antMatchers("/doc.html").hasAnyRole("CODER") //所有资源都需要这些角色中的一个"USER", "ADMIN","CODER","NORMAL"
                 .antMatchers("/lolicon/*").hasAnyRole("ADMIN","CODER")
                 .antMatchers("/setu/*").hasAnyRole("ADMIN","CODER")
