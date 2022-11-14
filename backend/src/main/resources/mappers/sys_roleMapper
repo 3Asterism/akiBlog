@@ -30,4 +30,10 @@
         SELECT *
         FROM sys_role
     </select>
+
+    <select id="listAllByUserId" resultMap="BaseResultMap">
+        SELECT r.id, r.name name, r.description description
+        FROM sys_role r, sys_user_role ur
+        WHERE r.id = ur.role_id AND ur.user_id = #{userId}
+    </select>
 </mapper>

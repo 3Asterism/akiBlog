@@ -42,4 +42,10 @@ public interface sys_userMapper {
 
     //用户通过用户名模糊搜索用户
     List<searchUserByNameResult> userSearchUserById(@Param("searchUserByNameInfo") searchUserByNameInfo searchUserByNameInfo);
+
+    //通过用户名称搜索所有值
+    sys_user getByUsername(@Param("username") String username);
+
+    //用户注册时插入全部数据
+    void insertAllInfo(@Param("sys_user") sys_user sys_user);
 }

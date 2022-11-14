@@ -2,12 +2,14 @@ package com.akisan.akiblog.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
 
 
 @Data
-public class sys_role {
+public class sys_role implements GrantedAuthority {
     /**
      * 角色表 用于管理权限
      */
@@ -20,4 +22,10 @@ public class sys_role {
 
     @ApiModelProperty(value = "描述")
     private String description;
+
+    @JsonIgnore
+    @Override
+    public String getAuthority() {
+        return name;
+    }
 }

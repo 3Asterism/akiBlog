@@ -13,6 +13,8 @@
         <result column="useravatar" property="useravatar"/>
         <result column="userrole" property="userrole"/>
         <result column="useronline" property="useronline"/>
+        <result column="status" property="status"/>
+        <result column="passwordNonExpired" property="passwordNonExpired"/>
     </resultMap>
 
     <select id="findAll" resultMap="BaseResultMap">
@@ -99,4 +101,13 @@
         </if>
         ORDER BY registertime DESC
     </select>
+
+    <select id="getByUsername" resultMap="BaseResultMap">
+        select userid, username, password, status, passwordNonExpired from sys_user where username = #{username}
+    </select>
+
+    <insert id="insertAllInfo">
+        INSERT INTO sys_user(username, password, nickname,userid, email, phonenum,address, registertime, useravatar,userrole,useronline, status, passwordNonExpired)
+        VALUES (#{sys_user.username}, #{sys_user.password}, #{sys_user.nickname},#{sys_user.userid}, #{sys_user.email}, #{sys_user.phonenum},#{sys_user.address}, #{sys_user.registertime}, #{sys_user.useravatar},#{sys_user.userrole}, #{sys_user.useronline}, #{sys_user.status}, #{sys_user.passwordNonExpired})
+    </insert>
 </mapper>

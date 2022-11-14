@@ -6,6 +6,7 @@ import com.akisan.akiblog.mapper.sys_userMapper;
 import com.akisan.akiblog.pojo.userLogOutInfo;
 import com.akisan.akiblog.pojo.userLoginInfo;
 import com.akisan.akiblog.pojo.userRegisterInfo;
+import com.akisan.akiblog.service.Impl.SysUserServiceImpl;
 import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +25,9 @@ public class UserLoginController {
 
     @Autowired
     private sys_userMapper sys_userMapper;
+
+    @Autowired
+    private SysUserServiceImpl sysUserService;
 
     @GetMapping("/findAll")
     @ApiOperation(value = "用户 - 返回用户所有信息")
@@ -49,6 +53,13 @@ public class UserLoginController {
     @ApiOperation(value = "用户 - 退出")
     public resultForRequest userLogOut(@RequestBody userLogOutInfo userLogOutInfo){
         sysUserRegister.userLogOut(userLogOutInfo);
+        return resultForRequest.success();
+    }
+
+    @PostMapping("/registerSpring")
+    @ApiOperation(value = "用户 - 测试注册")
+    public resultForRequest insertInfoTest(@RequestBody sys_user sys_user){
+        sysUserService.save(sys_user);
         return resultForRequest.success();
     }
 }

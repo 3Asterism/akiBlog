@@ -22,4 +22,7 @@ public interface sys_roleMapper {
 
     //返回所有权限
     List<sys_role> searchAllRole();
+
+    //获取用户关联的所有角色
+    List<sys_role> listAllByUserId(@Param("userId") int userId);
 }
