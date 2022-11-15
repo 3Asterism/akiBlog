@@ -13,5 +13,4 @@ public class AkiBlogApplication {
     public static void main(String[] args) {
         SpringApplication.run(AkiBlogApplication.class, args);
     }
-
 }
