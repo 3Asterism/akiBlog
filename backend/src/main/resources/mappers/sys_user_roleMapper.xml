@@ -12,4 +12,12 @@
         INSERT INTO sys_user_role(id, user_id, role_id,enabled)
         VALUES (#{sys_user_role.id}, #{sys_user_role.user_id}, #{sys_user_role.role_id}, #{sys_user_role.enabled})
     </insert>
+
+    <update id="updateUserRole">
+        UPDATE sys_user_role
+        <set>
+            role_id = #{updateUserRoleInfo.role_id}
+        </set>
+        WHERE user_id = #{updateUserRoleInfo.user_id}
+    </update>
 </mapper>

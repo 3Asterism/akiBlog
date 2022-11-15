@@ -1,8 +1,9 @@
 package com.akisan.akiblog.controller;
 
-import com.akisan.akiblog.common.resultForRequest;
+import com.akisan.akiblog.common.resultForRequestConstant;
 import com.akisan.akiblog.entity.sys_role;
 import com.akisan.akiblog.pojo.*;
+import com.akisan.akiblog.service.Impl.SysUserRoleFunctionImpl;
 import com.akisan.akiblog.service.Impl.SysUserRoleOrganizeImpl;
 import com.akisan.akiblog.service.Impl.sysRoleOrganizeImpl;
 import io.swagger.annotations.Api;
@@ -20,12 +21,14 @@ public class organizeRoleController {
     private SysUserRoleOrganizeImpl sysUserRoleOrganize;
     @Autowired
     private sysRoleOrganizeImpl sysRoleOrganize;
+    @Autowired
+    private SysUserRoleFunctionImpl SysUserRoleFunctionImpl;
 
     @PostMapping("/changeUserRole")
     @ApiOperation(value = "更改用户权限")
-    public resultForRequest changeUserRole(@RequestBody organizeRoleInfo organizeRoleInfo) {
+    public resultForRequestConstant changeUserRole(@RequestBody organizeRoleInfo organizeRoleInfo) {
         sysUserRoleOrganize.organizeRole(organizeRoleInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/searchUserRole")
@@ -36,28 +39,35 @@ public class organizeRoleController {
 
     @PostMapping("/insertRole")
     @ApiOperation(value = "增加权限")
-    public resultForRequest insertRole(@RequestBody insertRoleInfo insertRoleInfo) {
+    public resultForRequestConstant insertRole(@RequestBody insertRoleInfo insertRoleInfo) {
         sysRoleOrganize.insertRole(insertRoleInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @DeleteMapping("/deleteRole")
     @ApiOperation(value = "删除权限")
-    public resultForRequest deleteRole(@RequestBody delRoleInfo delRoleInfo) {
+    public resultForRequestConstant deleteRole(@RequestBody delRoleInfo delRoleInfo) {
         sysRoleOrganize.deleteRole(delRoleInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/reformRoleInfo")
     @ApiOperation(value = "修改权限")
-    public resultForRequest reformRole(@RequestBody reformRoleInfo reformRoleInfo) {
+    public resultForRequestConstant reformRole(@RequestBody reformRoleInfo reformRoleInfo) {
         sysRoleOrganize.reformRole(reformRoleInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @GetMapping("/reformRoleInfo")
     @ApiOperation(value = "查看权限列表")
     public List<sys_role> searchAllRole() {
         return sysRoleOrganize.searchAllRole();
+    }
+
+    @PostMapping("/changeUserRoleNew")
+    @ApiOperation(value = "更改用户权限-新")
+    public resultForRequestConstant changeUserRoleNew(@RequestBody updateUserRoleInfo updateUserRoleInfo) {
+        SysUserRoleFunctionImpl.updateSys_user_role(updateUserRoleInfo);
+        return resultForRequestConstant.success();
     }
 }

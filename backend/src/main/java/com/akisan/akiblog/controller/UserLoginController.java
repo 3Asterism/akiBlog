@@ -1,6 +1,6 @@
 package com.akisan.akiblog.controller;
 
-import com.akisan.akiblog.common.resultForRequest;
+import com.akisan.akiblog.common.resultForRequestConstant;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
 import com.akisan.akiblog.pojo.userLogOutInfo;
@@ -41,30 +41,30 @@ public class UserLoginController {
 
     @PostMapping("/register")
     @ApiOperation(value = "用户 - 注册")
-    public resultForRequest insertInfo(@RequestBody userRegisterInfo userRegisterInfo){
+    public resultForRequestConstant insertInfo(@RequestBody userRegisterInfo userRegisterInfo){
         sysUserRegister.insertUserInfo(userRegisterInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/userLogin")
     @ApiOperation(value = "用户 - 登录")
-    public resultForRequest userLogin(@RequestBody userLoginInfo userLoginInfo){
+    public resultForRequestConstant userLogin(@RequestBody userLoginInfo userLoginInfo){
         sysUserRegister.userLogin(userLoginInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/userLogOut")
     @ApiOperation(value = "用户 - 退出")
-    public resultForRequest userLogOut(@RequestBody userLogOutInfo userLogOutInfo){
+    public resultForRequestConstant userLogOut(@RequestBody userLogOutInfo userLogOutInfo){
         sysUserRegister.userLogOut(userLogOutInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/registerSpring")
     @ApiOperation(value = "用户 - 测试注册")
-    public resultForRequest insertInfoTest(@RequestBody sys_user sys_user){
+    public resultForRequestConstant insertInfoTest(@RequestBody sys_user sys_user){
         sysUserService.save(sys_user);
         SysUserRoleFunctionImpl.setSys_user_role(sys_user);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 }

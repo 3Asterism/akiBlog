@@ -1,6 +1,6 @@
 package com.akisan.akiblog.controller;
 
-import com.akisan.akiblog.common.resultForRequest;
+import com.akisan.akiblog.common.resultForRequestConstant;
 import com.akisan.akiblog.entity.sys_blog;
 import com.akisan.akiblog.pojo.deleteBlogByBlogIdInfo;
 import com.akisan.akiblog.pojo.searchBlogByUserIdInfo;
@@ -22,23 +22,23 @@ public class BlogEditorController {
 
     @PostMapping("/editBlog")
     @ApiOperation(value = "新增博客")
-    public resultForRequest editBlog(@RequestBody sys_blog sys_blog) {
+    public resultForRequestConstant editBlog(@RequestBody sys_blog sys_blog) {
         sysBlogEditPage.insertBlog(sys_blog);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @DeleteMapping("/deleteBlog")
     @ApiOperation(value = "通过blogid删除博客")
-    public resultForRequest deleteBlog(@RequestBody deleteBlogByBlogIdInfo deleteBlogByBlogIdInfo) {
+    public resultForRequestConstant deleteBlog(@RequestBody deleteBlogByBlogIdInfo deleteBlogByBlogIdInfo) {
         sysBlogEditPage.deleteBlog(deleteBlogByBlogIdInfo);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/reformBlog")
     @ApiOperation(value = "修改博客")
-    public resultForRequest reformBlog(@RequestBody sys_blog sys_blog) {
+    public resultForRequestConstant reformBlog(@RequestBody sys_blog sys_blog) {
         sysBlogEditPage.reformBlog(sys_blog);
-        return resultForRequest.success();
+        return resultForRequestConstant.success();
     }
 
     @PostMapping("/searchBlog")
