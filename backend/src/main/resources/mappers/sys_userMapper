@@ -103,7 +103,11 @@
     </select>
 
     <select id="getByUsername" resultMap="BaseResultMap">
-        select userid, username, password, status, passwordNonExpired from sys_user where username = #{username}
+        select * from sys_user where username = #{username}
+    </select>
+
+    <select id="getAllByUsername" resultMap="BaseResultMap">
+        select * from sys_user where userid = #{userid}
     </select>
 
     <insert id="insertAllInfo">

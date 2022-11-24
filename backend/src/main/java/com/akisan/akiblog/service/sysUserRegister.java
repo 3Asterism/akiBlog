@@ -1,5 +1,6 @@
 package com.akisan.akiblog.service;
 
+import com.akisan.akiblog.pojo.ResponseResult;
 import com.akisan.akiblog.pojo.userLogOutInfo;
 import com.akisan.akiblog.pojo.userLoginInfo;
 import com.akisan.akiblog.pojo.userRegisterInfo;
@@ -10,7 +11,7 @@ import com.akisan.akiblog.pojo.userRegisterInfo;
 public interface sysUserRegister {
     void insertUserInfo(userRegisterInfo sys);
 
-    void userLogin(userLoginInfo sys);
+    ResponseResult userLogin(userLoginInfo sys);
 
     void userLogOut(userLogOutInfo sys);
 }

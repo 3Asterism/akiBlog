@@ -48,4 +48,8 @@ public interface sys_userMapper {
 
     //用户注册时插入全部数据
     void insertAllInfo(@Param("sys_user") sys_user sys_user);
+
+    //通过用户id称搜索所有值
+    sys_user getAllByUsername(@Param("userid") String userid);
+
 }

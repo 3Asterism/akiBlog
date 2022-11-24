@@ -3,6 +3,7 @@ package com.akisan.akiblog.controller;
 import com.akisan.akiblog.common.resultForRequestConstant;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
+import com.akisan.akiblog.pojo.ResponseResult;
 import com.akisan.akiblog.pojo.userLogOutInfo;
 import com.akisan.akiblog.pojo.userLoginInfo;
 import com.akisan.akiblog.pojo.userRegisterInfo;
@@ -12,6 +13,7 @@ import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,9 +50,8 @@ public class UserLoginController {
 
     @PostMapping("/userLogin")
     @ApiOperation(value = "用户 - 登录")
-    public resultForRequestConstant userLogin(@RequestBody userLoginInfo userLoginInfo){
-        sysUserRegister.userLogin(userLoginInfo);
-        return resultForRequestConstant.success();
+    public ResponseResult userLogin(@RequestBody userLoginInfo userLoginInfo){
+        return sysUserRegister.userLogin(userLoginInfo);
     }
 
     @PostMapping("/userLogOut")

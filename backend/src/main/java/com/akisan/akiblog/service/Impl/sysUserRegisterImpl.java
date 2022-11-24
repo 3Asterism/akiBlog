@@ -4,14 +4,19 @@ import com.akisan.akiblog.common.businessException;
 import com.akisan.akiblog.common.errorConstants;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
-import com.akisan.akiblog.pojo.userLogOutInfo;
-import com.akisan.akiblog.pojo.userLoginInfo;
-import com.akisan.akiblog.pojo.userRegisterInfo;
+import com.akisan.akiblog.pojo.*;
 import com.akisan.akiblog.service.sysUserRegister;
+import com.akisan.akiblog.utils.JwtUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.akisan.akiblog.common.legalCheckGlobalConstant.checkPwdLength;
 import static com.akisan.akiblog.common.legalCheckGlobalConstant.checkRegisterLength;
@@ -19,7 +24,9 @@ import static com.akisan.akiblog.common.legalCheckGlobalConstant.checkRegisterLe
 @Service
 public class sysUserRegisterImpl implements sysUserRegister {
     @Autowired
-    sys_userMapper sys_userMapper;
+    private sys_userMapper sys_userMapper;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     public void checkInfoLegal(String username, String pwd, String nickname) {
         //检查info合法性
@@ -47,15 +54,17 @@ public class sysUserRegisterImpl implements sysUserRegister {
     }
 
     @Override
-    public void userLogin(userLoginInfo sys) {
-        List<sys_user> userPwd = sys_userMapper.findUserPwd(sys.getUserName());
-        if (userPwd.isEmpty()) {
-            throw new businessException(errorConstants.CODE_402,"没有此账号!");
-        }
-        if (!sys.getPassword().equals(userPwd.get(0).getPassword())) {
-            throw new businessException(errorConstants.CODE_402,"密码错误!");
-        }
+    public ResponseResult userLogin(userLoginInfo sys) {
+        //获取AuthenticationManager认证方法进行认证
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(sys.getUserName(),sys.getPassword());
+        Authentication authentication = authenticationManager.authenticate(authenticationToken);
+        sys_user sys_user = (sys_user) authentication.getPrincipal();
+        String userid = sys_user.getUserid().toString();
+        String jwt = JwtUtil.createJWT(userid);
         sys_userMapper.updateUserOnlineStatus(sys.getUserName());
+        Map<String,String> map = new HashMap<>();
+        map.put("token",jwt);
+        return new ResponseResult(200,"登陆成功",map);
     }
 
     @Override
