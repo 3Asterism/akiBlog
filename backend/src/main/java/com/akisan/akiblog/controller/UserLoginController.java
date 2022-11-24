@@ -13,6 +13,7 @@ import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,7 @@ public class UserLoginController {
     @Autowired
     private SysUserRoleFunctionImpl SysUserRoleFunctionImpl;
 
+    @Secured({"ROLE_CODER"})
     @GetMapping("/findAll")
     @ApiOperation(value = "用户 - 返回用户所有信息")
     public List<sys_user> index(){

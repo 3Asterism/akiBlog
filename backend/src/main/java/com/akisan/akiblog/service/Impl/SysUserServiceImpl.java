@@ -4,6 +4,7 @@ import com.akisan.akiblog.entity.sys_role;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_roleMapper;
 import com.akisan.akiblog.mapper.sys_userMapper;
+import com.akisan.akiblog.pojo.LoginUser;
 import com.akisan.akiblog.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
