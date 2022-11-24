@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
@@ -30,28 +29,6 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
             auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
-//
-//    //2. SpringSecurity配置相关信息
-//    @Override
-//    public void configure(HttpSecurity http) throws Exception {
-//        // 释放静态资源，指定拦截规则，指定自定义的认证和退出页面，csrf配置等
-//        http.authorizeRequests()
-//                // 指定拦截规则
-//                .antMatchers("/home/*", "/blog/*", "/userActivity/*", "/findAll/*","/login/* , /login/userLogin" ).permitAll()  //释放这些资源，不拦截
-//                .antMatchers("/doc.html").hasAnyRole("CODER") //所有资源都需要这些角色中的一个"USER", "ADMIN","CODER","NORMAL"
-//                .antMatchers("/lolicon/*","/setu/*").hasAnyRole("ADMIN","CODER")
-//                .anyRequest().authenticated()
-//                .and().formLogin()  //其他请求，必须认证通过之后才能访问
-//                .and()
-//                .csrf()
-//                .disable()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//                }
-//
-//        @Bean
-//        public BCryptPasswordEncoder bCryptPasswordEncoder () {
-//            return new BCryptPasswordEncoder();
-//        }
 
 
     @Bean

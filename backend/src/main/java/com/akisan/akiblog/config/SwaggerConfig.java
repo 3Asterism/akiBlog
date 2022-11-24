@@ -45,7 +45,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
         return new ApiInfoBuilder()
                 .title("akiBlog")
                 .description("个人博客项目文档")
-                .termsOfServiceUrl("http://localhost:8080/")
+                .termsOfServiceUrl("http://47.100.215.126/:8080/")
                 .contact("后端:842384412@qq.com Aki\n" +
                         "前端:976875730@qq.com 蓝酱")
                 .version("0.1")

@@ -4,7 +4,6 @@ import com.akisan.akiblog.entity.sys_role;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_roleMapper;
 import com.akisan.akiblog.mapper.sys_userMapper;
-import com.akisan.akiblog.pojo.LoginUser;
 import com.akisan.akiblog.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @Transactional
@@ -51,21 +49,4 @@ public class SysUserServiceImpl implements SysUserService {
         sysUser.setRoles(sysRoles);
         return sysUser;
     }
-
-//    @Override
-//    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-//        //查询用户信息
-//        sys_user sys_user = sysUserMapper.getByUsername(userName);
-//        //如果没查到抛出异常
-//        if(Objects.isNull(sys_user)){
-//            throw new RuntimeException("用户名或密码错误");
-//        }
-//        //查询对应权限类型
-//        List<sys_role> sysRoles = sysRoleMapper.listAllByUserId(sys_user.getUserid());
-//        sys_user.setRoles(sysRoles);
-//        //把数据封装为UserDetails返回
-//
-//        return new LoginUser(sys_user);
-//    }
-
 }

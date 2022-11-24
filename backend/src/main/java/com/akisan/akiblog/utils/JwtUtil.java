@@ -108,8 +108,6 @@ public class JwtUtil {
     }
 
     public static void main(String[] args) throws Exception {
-//        String jwt = createJWT("123456");
-//        System.out.println(jwt);
         Claims claims = parseJWT("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxOTU4MWJkMWQ3NTA0YWY5YmMzNGVkNDFmZjQ2NzBiNyIsInN1YiI6IjEyMzQ1NiIsImlzcyI6Inp3cCIsImlhdCI6MTY2MjYyMTI0MiwiZXhwIjoxNjYyNjI0ODQyfQ.qG-dFsFKVvh9qoN2B4FAt-YCrxtDNEO3MWYGHtNcSb0");
         System.out.println(claims);
         System.out.println(claims.getSubject());
