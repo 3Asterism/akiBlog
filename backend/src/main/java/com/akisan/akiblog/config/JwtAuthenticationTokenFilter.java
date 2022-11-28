@@ -46,7 +46,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             throw new RuntimeException("token非法");
         }
         sys_user sys_user = sys_userMapper.getAllByUsername(userid);
-        if(Objects.isNull(sys_user)){
+        if(sys_user.getUseronline().equals("0")){
             throw new RuntimeException("用户未登录");
         }
         //加入权限模块

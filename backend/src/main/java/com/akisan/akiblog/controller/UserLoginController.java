@@ -41,7 +41,7 @@ public class UserLoginController {
     }
 
     @PostMapping("/register")
-    @ApiOperation(value = "用户 - 注册")
+    @ApiOperation(value = "用户 - 注册 弃用版本")
     public resultForRequestConstant insertInfo(@RequestBody userRegisterInfo userRegisterInfo){
         sysUserRegister.insertUserInfo(userRegisterInfo);
         return resultForRequestConstant.success();
@@ -61,7 +61,7 @@ public class UserLoginController {
     }
 
     @PostMapping("/registerSpring")
-    @ApiOperation(value = "用户 - 测试注册")
+    @ApiOperation(value = "用户 - 注册")
     public resultForRequestConstant insertInfoTest(@RequestBody sys_user sys_user){
         sysUserService.save(sys_user);
         SysUserRoleFunctionImpl.setSys_user_role(sys_user);
