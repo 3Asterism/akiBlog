@@ -3,10 +3,7 @@ package com.akisan.akiblog.controller;
 import com.akisan.akiblog.common.resultForRequestConstant;
 import com.akisan.akiblog.entity.sys_user;
 import com.akisan.akiblog.mapper.sys_userMapper;
-import com.akisan.akiblog.pojo.ResponseResult;
-import com.akisan.akiblog.pojo.userLogOutInfo;
-import com.akisan.akiblog.pojo.userLoginInfo;
-import com.akisan.akiblog.pojo.userRegisterInfo;
+import com.akisan.akiblog.pojo.*;
 import com.akisan.akiblog.service.Impl.SysUserRoleFunctionImpl;
 import com.akisan.akiblog.service.Impl.SysUserServiceImpl;
 import com.akisan.akiblog.service.Impl.sysUserRegisterImpl;
@@ -69,5 +66,11 @@ public class UserLoginController {
         sysUserService.save(sys_user);
         SysUserRoleFunctionImpl.setSys_user_role(sys_user);
         return resultForRequestConstant.success();
+    }
+
+    @PostMapping("/userChangePwd")
+    @ApiOperation(value = "用户 - 更改密码")
+    public ResponseResult userChangePwd(@RequestBody userChangePwdInfo userChangePwdInfo){
+        return sysUserService.changeUserPWD(userChangePwdInfo);
     }
 }

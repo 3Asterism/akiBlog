@@ -114,4 +114,15 @@
         INSERT INTO sys_user(username, password, nickname,userid, email, phonenum,address, registertime, useravatar,userrole,useronline, status, passwordNonExpired)
         VALUES (#{sys_user.username}, #{sys_user.password}, #{sys_user.nickname},#{sys_user.userid}, #{sys_user.email}, #{sys_user.phonenum},#{sys_user.address}, #{sys_user.registertime}, #{sys_user.useravatar},#{sys_user.userrole}, #{sys_user.useronline}, #{sys_user.status}, #{sys_user.passwordNonExpired})
     </insert>
+
+    <update id="updateUserPwd">
+        UPDATE sys_user
+        <set>
+            password = #{userChangePwdInfo.passwordChanged}
+        </set>
+        WHERE 1=1
+        <if test="userChangePwdInfo.userName != null">
+            AND username = #{userChangePwdInfo.userName}
+        </if>
+    </update>
 </mapper>
