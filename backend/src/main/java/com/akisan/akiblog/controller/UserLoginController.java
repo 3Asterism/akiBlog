@@ -70,7 +70,7 @@ public class UserLoginController {
 
     @PostMapping("/userChangePwd")
     @ApiOperation(value = "用户 - 更改密码")
-    public ResponseResult userChangePwd(@RequestBody userChangePwdInfo userChangePwdInfo){
+    public ResponseResult<userChangePwdInfo> userChangePwd(@RequestBody userChangePwdInfo userChangePwdInfo){
         return sysUserService.changeUserPWD(userChangePwdInfo);
     }
 }

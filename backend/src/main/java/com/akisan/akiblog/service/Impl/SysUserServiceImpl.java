@@ -38,13 +38,13 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public ResponseResult changeUserPWD(userChangePwdInfo userChangePwdInfo) {
+    public ResponseResult<userChangePwdInfo> changeUserPWD(userChangePwdInfo userChangePwdInfo) {
         if(passwordEncoder.matches(userChangePwdInfo.getPassword(),sysUserMapper.getByUsername(userChangePwdInfo.getUserName()).getPassword())){
             userChangePwdInfo.setPasswordChanged(passwordEncoder.encode(userChangePwdInfo.getPasswordChanged()));
             sysUserMapper.updateUserPwd(userChangePwdInfo);
-            return new ResponseResult(200,"修改成功",userChangePwdInfo);
+            return new ResponseResult<>(200, "修改成功", userChangePwdInfo);
         }else{
-            return new ResponseResult(401,"密码校验错误!",userChangePwdInfo);
+            return new ResponseResult<>(401, "密码校验错误!", userChangePwdInfo);
         }
     }
 
