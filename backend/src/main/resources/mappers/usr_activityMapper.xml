@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.usr_activityMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.usr_activity">
+        <id column="id" property="id"/>
+        <result column="getpictimes" property="getpictimes"/>
+        <result column="description" property="description"/>
+    </resultMap>
+    <select id="findTimesById" parameterType="com.akisan.akiblog.pojo.getServiceTimesInfo" resultType="int">
+        SELECT getpictimes
+        FROM usr_activity WHERE id = #{getServiceTimesInfo.id}
+    </select>
+    <update id="updateTimesById">
+        UPDATE usr_activity
+        <set>
+            getpictimes = #{updateServiceTimesInfo.getpictimes}
+        </set>
+        WHERE 1=1
+        <if test="updateServiceTimesInfo.id != null">
+            AND id = #{updateServiceTimesInfo.id}
+        </if>
+    </update>
+</mapper>

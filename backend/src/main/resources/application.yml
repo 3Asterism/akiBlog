@@ -7,6 +7,7 @@ server:
 #    url: jdbc:mysql://localhost:3306/sys?serverTimezone=GMT%2b8
 #    username: root
 #    password: baicaiin33
+#现场环境
 
 spring:
   datasource:
@@ -14,6 +15,7 @@ spring:
     url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8
     username: root
     password: 123456
+#测试环境
 
   mvc:
     pathmatch:
