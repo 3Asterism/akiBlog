@@ -7,8 +7,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/userActivity")
@@ -16,10 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class usrActivityController {
     @Autowired
     userGetServiceTimesImpl userGetServiceTimesImpl;
+
+
     @Secured({"ROLE_CODER"})
-    @GetMapping("/findTimesById")
+    @PostMapping("/findTimesById")
     @ApiOperation(value = "通过id查找接口使用次数")
-    public int index(getServiceTimesInfo getServiceTimesInfo){
+    @ResponseBody
+    public Integer index(@RequestBody getServiceTimesInfo getServiceTimesInfo){
         return userGetServiceTimesImpl.usrGetLoliconTimes(getServiceTimesInfo);
     }
 }
