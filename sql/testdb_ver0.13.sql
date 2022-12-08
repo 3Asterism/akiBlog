@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhostsql
+ Source Server         : 10.30.2.60
  Source Server Type    : MySQL
  Source Server Version : 80031
  Source Host           : localhost:3306
@@ -11,10 +11,10 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 07/12/2022 17:33:25
+ Date: 08/12/2022 11:47:42
 */
 
-SET NAMES utf8mb4;
+SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -39,11 +39,11 @@ CREATE TABLE `sys_blog`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_homepagemsg`;
 CREATE TABLE `sys_homepagemsg`  (
-  `msgcontent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '消息内容',
+  `msgcontent` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '消息内容',
   `msgid` int NOT NULL AUTO_INCREMENT COMMENT '消息id 主键自增',
   `msgcreatetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '消息创建时间',
   PRIMARY KEY (`msgid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_homepagemsg
@@ -77,7 +77,7 @@ CREATE TABLE `sys_role_permission`  (
   `role_id` bigint NOT NULL COMMENT '角色id',
   `permission_id` bigint NULL DEFAULT NULL COMMENT '权限id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '角色权限表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '角色权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role_permission
@@ -102,7 +102,7 @@ CREATE TABLE `sys_user`  (
   `status` tinyint(1) NULL DEFAULT NULL COMMENT '用户状态，1-开启-0禁用',
   `passwordNonExpired` tinyint(1) NULL DEFAULT NULL COMMENT '密码是否失效，1-可用，0-失效',
   PRIMARY KEY (`userid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 11 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
@@ -122,7 +122,7 @@ CREATE TABLE `sys_user_role`  (
   `role_id` bigint NULL DEFAULT NULL COMMENT '角色id',
   `enabled` tinyint(1) NULL DEFAULT 1 COMMENT '是否有效',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '用户角色关联表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '用户角色关联表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_user_role
@@ -141,11 +141,11 @@ CREATE TABLE `usr_activity`  (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'id主键',
   `description` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '接口名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of usr_activity
 -- ----------------------------
-INSERT INTO `usr_activity` VALUES (0, 1, 'lolicon接口调用次数');
+INSERT INTO `usr_activity` VALUES (5, 1, 'lolicon接口调用次数');
 
 SET FOREIGN_KEY_CHECKS = 1;
