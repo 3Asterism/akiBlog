@@ -9,6 +9,7 @@ import com.akisan.akiblog.service.Impl.sysRoleOrganizeImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class organizeRoleController {
     @Autowired
     private SysUserRoleFunctionImpl SysUserRoleFunctionImpl;
 
+    @Secured({"ROLE_CODER"})
     @PostMapping("/changeUserRole")
     @ApiOperation(value = "更改用户权限")
     public resultForRequestConstant changeUserRole(@RequestBody organizeRoleInfo organizeRoleInfo) {
@@ -31,12 +33,14 @@ public class organizeRoleController {
         return resultForRequestConstant.success();
     }
 
+    @Secured({"ROLE_CODER"})
     @PostMapping("/searchUserRole")
     @ApiOperation(value = "查看用户权限")
     public searchRoleResult searchUserRole(@RequestBody searchRoleInfo searchRoleInfo) {
         return sysUserRoleOrganize.searchRole(searchRoleInfo);
     }
 
+    @Secured({"ROLE_CODER"})
     @PostMapping("/insertRole")
     @ApiOperation(value = "增加权限")
     public resultForRequestConstant insertRole(@RequestBody insertRoleInfo insertRoleInfo) {
@@ -44,6 +48,7 @@ public class organizeRoleController {
         return resultForRequestConstant.success();
     }
 
+    @Secured({"ROLE_CODER"})
     @DeleteMapping("/deleteRole")
     @ApiOperation(value = "删除权限")
     public resultForRequestConstant deleteRole(@RequestBody delRoleInfo delRoleInfo) {
@@ -51,6 +56,7 @@ public class organizeRoleController {
         return resultForRequestConstant.success();
     }
 
+    @Secured({"ROLE_CODER"})
     @PostMapping("/reformRoleInfo")
     @ApiOperation(value = "修改权限")
     public resultForRequestConstant reformRole(@RequestBody reformRoleInfo reformRoleInfo) {
@@ -58,12 +64,14 @@ public class organizeRoleController {
         return resultForRequestConstant.success();
     }
 
+    @Secured({"ROLE_CODER"})
     @GetMapping("/reformRoleInfo")
     @ApiOperation(value = "查看权限列表")
     public List<sys_role> searchAllRole() {
         return sysRoleOrganize.searchAllRole();
     }
 
+    @Secured({"ROLE_CODER"})
     @PostMapping("/changeUserRoleNew")
     @ApiOperation(value = "更改用户权限-新")
     public resultForRequestConstant changeUserRoleNew(@RequestBody updateUserRoleInfo updateUserRoleInfo) {

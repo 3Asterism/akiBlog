@@ -46,7 +46,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // 对于登录接口 允许匿名访问
-                .antMatchers("/login/userLogin","/login/registerSpring").anonymous()
+                .antMatchers("/login/**","/home/**").anonymous()
                 //放行swagger
                 .antMatchers("/swagger-ui.html","/swagger-resources/**","/webjars/**","/v2/**","/api/**","/doc.html").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
