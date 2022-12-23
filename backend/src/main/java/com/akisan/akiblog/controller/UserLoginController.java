@@ -69,6 +69,7 @@ public class UserLoginController {
         return resultForRequestConstant.success();
     }
 
+    @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER"})
     @PostMapping("/userChangePwd")
     @ApiOperation(value = "用户 - 更改密码")
     public ResponseResult<userChangePwdInfo> userChangePwd(@RequestBody userChangePwdInfo userChangePwdInfo){
