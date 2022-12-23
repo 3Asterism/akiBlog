@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.sys_blog_commentMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.sys_blog_comment">
+        <id column="commentid" property="commentid"/>
+        <result column="userid" property="userid"/>
+        <result column="comment" property="comment"/>
+        <result column="blogid" property="blogid"/>
+    </resultMap>
+    <select id="searchAllComment" resultMap="BaseResultMap">
+        SELECT *
+        FROM sys_blog_comment
+        WHERE 1=1
+        <if test="searchCommentInfo.blogId != null">
+            AND blogid = #{searchCommentInfo.blogId}
+        </if>
+    </select>
+
+    <delete id="deleteComment">
+        DELETE FROM sys_blog_comment
+        WHERE 1=1
+        <if test="delCommentInfo.commentId != null">
+            AND commentid = #{delCommentInfo.commentId}
+        </if>
+    </delete>
+
+    <insert id="addComment">
+        INSERT INTO sys_blog_comment(blogid, comment, userid)
+        VALUES (#{addBlogCommentInfo.blogid}, #{addBlogCommentInfo.comment}, #{addBlogCommentInfo.userid})
+    </insert>
+
+    <update id="updateComment">
+        UPDATE sys_blog_comment
+        <set>
+            comment = #{updateBlogCommentInfo.comment}
+        </set>
+        WHERE 1=1
+        <if test="updateBlogCommentInfo.commentId != null">
+            AND commentid = #{updateBlogCommentInfo.commentId}
+        </if>
+    </update>
+
+
+</mapper>
