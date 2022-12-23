@@ -2,18 +2,23 @@
 个人博客  
 后端:842384412@qq.com Aki  
 前端:976875730@qq.com 蓝酱  
-目前开发进度:25%  
+目前开发进度:40%  
   
 已完成功能  
 注册 登录 后端(true) 前端(false)  
 首页 查询/模糊查询 后端(true) 前端(false)  
 博客增删改查 后端(true) 前端(false)  
 权限模块 后端(true) 前端(false)  
-  
+搜图模块 后端(true) 前端(true)  
+    
     
 默认后端地址:localhost:8080
 默认项目文档地址:http://localhost:8080/doc.html  
 默认数据库地址:jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8  
+后端部署47.100.215.126:8080/doc.html  
+  
+![image](https://user-images.githubusercontent.com/72266886/206615371-e852ade2-372c-4b8d-b714-c72e6329ccc8.png)
+  
   
   
 服务端使用tomcat 后端使用SSM框架+SpringCloud 配置采用yml 前端使用JS+VUE  
