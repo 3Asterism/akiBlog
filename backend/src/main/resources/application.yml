@@ -1,5 +1,9 @@
 server:
   port: 8080
+  #在propertis配置文件中加上这两行即可放开拦截:
+  error:
+    include-exception: true
+    include-message: always
 
 #spring:
 #  datasource:
