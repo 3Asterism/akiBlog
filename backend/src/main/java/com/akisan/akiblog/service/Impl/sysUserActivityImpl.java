@@ -23,4 +23,9 @@ public class sysUserActivityImpl implements sysUserActivity {
     public List<searchUserByNameResult> userSearchUserById(searchUserByNameInfo searchUserByNameInfo) {
         return sys_userMapper.userSearchUserById(searchUserByNameInfo);
     }
+
+    @Override
+    public sys_user showUserById(String userid) {
+        return sys_userMapper.getAllByUsername(userid);
+    }
 }

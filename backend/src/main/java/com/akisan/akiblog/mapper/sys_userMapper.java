@@ -54,4 +54,6 @@ public interface sys_userMapper {
 
     //修改用户密码
     void updateUserPwd(@Param("userChangePwdInfo")userChangePwdInfo userChangePwdInfo);
+
+
 }

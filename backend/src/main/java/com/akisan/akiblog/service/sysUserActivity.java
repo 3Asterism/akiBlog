@@ -10,4 +10,6 @@ public interface sysUserActivity {
     List<sys_user> showOnlineUser();
 
     List<searchUserByNameResult> userSearchUserById(searchUserByNameInfo searchUserByNameInfo);
+
+    sys_user showUserById(String userid);
 }

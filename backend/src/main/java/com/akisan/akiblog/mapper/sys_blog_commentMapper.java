@@ -14,10 +14,13 @@ import java.util.List;
 public interface sys_blog_commentMapper {
     //增加博客评论
     void addComment(@Param("addBlogCommentInfo") addBlogCommentInfo addBlogCommentInfo);
+
     //删除博客评论
     void deleteComment(@Param("delCommentInfo") delCommentInfo delCommentInfo);
+
     //修改博客评论
     void updateComment(@Param("updateBlogCommentInfo") updateBlogCommentInfo updateBlogCommentInfo);
+
     //通过博客id搜索所有博客评论
     List<sys_blog_comment> searchAllComment(@Param("searchCommentInfo") searchCommentInfo searchCommentInfo);
 }
