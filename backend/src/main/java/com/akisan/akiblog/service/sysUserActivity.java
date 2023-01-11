@@ -12,4 +12,6 @@ public interface sysUserActivity {
     List<searchUserByNameResult> userSearchUserById(searchUserByNameInfo searchUserByNameInfo);
 
     sys_user showUserById(String userid);
+
+    sys_user showUserByName(String name);
 }

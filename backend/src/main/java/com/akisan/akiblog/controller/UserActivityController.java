@@ -1,6 +1,7 @@
 package com.akisan.akiblog.controller;
 
 import com.akisan.akiblog.entity.sys_user;
+import com.akisan.akiblog.pojo.getUserByNameInfo;
 import com.akisan.akiblog.pojo.searchUserByIdInfo;
 import com.akisan.akiblog.pojo.searchUserByNameInfo;
 import com.akisan.akiblog.pojo.searchUserByNameResult;
@@ -39,5 +40,12 @@ public class UserActivityController {
     @ApiOperation(value = "用户 - 通过id查找该用户所有信息")
     public sys_user showUserById(@RequestBody searchUserByIdInfo searchUserByIdInfo){
         return sysUserActivity.showUserById(searchUserByIdInfo.getUserid());
+    }
+
+    @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER"})
+    @PostMapping("/showUserByName")
+    @ApiOperation(value = "用户 - 通过账号查找该用户所有信息")
+    public sys_user showUserByName(@RequestBody getUserByNameInfo getUserByNameInfo){
+        return sysUserActivity.showUserByName(getUserByNameInfo.getUsername());
     }
 }
