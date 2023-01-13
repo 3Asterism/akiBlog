@@ -33,7 +33,6 @@ public class organizeRoleController {
         return resultForRequestConstant.success();
     }
 
-    @Secured({"ROLE_CODER"})
     @PostMapping("/searchUserRole")
     @ApiOperation(value = "查看用户权限")
     public searchRoleResult searchUserRole(@RequestBody searchRoleInfo searchRoleInfo) {
