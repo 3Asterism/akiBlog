@@ -53,7 +53,6 @@ public class UserLoginController {
         return sysUserRegister.userLogin(userLoginInfo);
     }
 
-    @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER","ROLE_NORMAL"})
     @PostMapping("/userLogOut")
     @ApiOperation(value = "用户 - 退出")
     public resultForRequestConstant userLogOut(@RequestBody userLogOutInfo userLogOutInfo){
