@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @ApiModel(description = "用户 - 博客评论表")
 public class sys_blog_comment {
@@ -21,4 +23,7 @@ public class sys_blog_comment {
 
     @ApiModelProperty(value = "评论人id")
     private Integer userid;
+
+    @ApiModelProperty(value = "评论时间")
+    private Date time;
 }
