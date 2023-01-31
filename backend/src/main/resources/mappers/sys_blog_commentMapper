@@ -6,6 +6,7 @@
         <result column="userid" property="userid"/>
         <result column="comment" property="comment"/>
         <result column="blogid" property="blogid"/>
+        <result column="time" property="time"/>
     </resultMap>
     <select id="searchAllComment" resultMap="BaseResultMap">
         SELECT *
