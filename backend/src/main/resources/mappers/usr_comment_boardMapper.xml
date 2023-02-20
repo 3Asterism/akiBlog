@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.usr_comment_boardMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.usr_comment_board">
+        <id column="boardid" property="boardid"/>
+        <result column="userid" property="userid"/>
+        <result column="boardcontent" property="boardcontent"/>
+        <result column="createtime" property="createtime"/>
+    </resultMap>
+    <select id="findAllBoard" resultMap="BaseResultMap">
+        SELECT *
+        FROM usr_comment_board
+        ORDER BY createtime DESC
+    </select>
+
+    <insert id="insertBoard">
+        INSERT INTO usr_comment_board(userid, boardcontent)
+        VALUES (#{insertBoardInfo.userid}, #{insertBoardInfo.boardcontent})
+    </insert>
+
+    <delete id="deleteBoard">
+        DELETE FROM usr_comment_board WHERE 1=1
+        <if test="deleteBoardInfo.boardid != null">
+            AND boardid = #{deleteBoardInfo.boardid}
+        </if>
+    </delete>
+</mapper>

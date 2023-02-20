@@ -7,6 +7,7 @@ import com.akisan.akiblog.pojo.delCommentInfo;
 import com.akisan.akiblog.pojo.searchCommentInfo;
 import com.akisan.akiblog.pojo.updateBlogCommentInfo;
 import com.akisan.akiblog.service.Impl.sysBlogCommentImpl;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class BlogCommentController {
     @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER"})
     @PostMapping("/searchBlogCommentById")
     @ApiOperation(value = "通过博客id查找博客评论")
-    public List<sys_blog_comment> searchBlog(@RequestBody searchCommentInfo searchCommentInfo) {
+    public PageInfo<sys_blog_comment> searchBlog(@RequestBody searchCommentInfo searchCommentInfo) {
         return sysBlogCommentImpl.searchAllComment(searchCommentInfo);
     }
 }

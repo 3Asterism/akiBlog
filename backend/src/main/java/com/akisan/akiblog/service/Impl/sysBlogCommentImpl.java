@@ -1,12 +1,15 @@
 package com.akisan.akiblog.service.Impl;
 
 import com.akisan.akiblog.entity.sys_blog_comment;
+import com.akisan.akiblog.entity.usr_comment_board;
 import com.akisan.akiblog.mapper.sys_blog_commentMapper;
 import com.akisan.akiblog.pojo.addBlogCommentInfo;
 import com.akisan.akiblog.pojo.delCommentInfo;
 import com.akisan.akiblog.pojo.searchCommentInfo;
 import com.akisan.akiblog.pojo.updateBlogCommentInfo;
 import com.akisan.akiblog.service.sysBlogComment;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +36,11 @@ public class sysBlogCommentImpl implements sysBlogComment {
     }
 
     @Override
-    public List<sys_blog_comment> searchAllComment(searchCommentInfo searchCommentInfo) {
-        return sys_blog_commentMapper.searchAllComment(searchCommentInfo);
+    public PageInfo<sys_blog_comment> searchAllComment(searchCommentInfo searchCommentInfo) {
+        PageHelper.startPage(searchCommentInfo.getPageNum(),searchCommentInfo.getPageSize());
+        List<sys_blog_comment> comments = sys_blog_commentMapper.searchAllComment(searchCommentInfo);
+        PageInfo<sys_blog_comment> pageInfo = new PageInfo<>(comments);
+        return pageInfo;
     }
 
 }

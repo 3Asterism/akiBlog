@@ -5,6 +5,7 @@ import com.akisan.akiblog.pojo.addBlogCommentInfo;
 import com.akisan.akiblog.pojo.delCommentInfo;
 import com.akisan.akiblog.pojo.searchCommentInfo;
 import com.akisan.akiblog.pojo.updateBlogCommentInfo;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface sysBlogComment {
 
     void updateComment(updateBlogCommentInfo updateBlogCommentInfo);
 
-    List<sys_blog_comment> searchAllComment(searchCommentInfo searchCommentInfo);
+    PageInfo<sys_blog_comment> searchAllComment(searchCommentInfo searchCommentInfo);
 }
