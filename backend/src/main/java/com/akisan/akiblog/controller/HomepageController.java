@@ -1,12 +1,15 @@
 package com.akisan.akiblog.controller;
 
 import com.akisan.akiblog.entity.sys_blog;
+import com.akisan.akiblog.pojo.dividePageInfo;
 import com.akisan.akiblog.pojo.getFuzzySearchInfo;
 import com.akisan.akiblog.pojo.searchHomePageMsgResult;
 import com.akisan.akiblog.service.Impl.sysBlogHomepageImpl;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +21,11 @@ public class HomepageController {
     @Autowired
     private sysBlogHomepageImpl sysBlogHomepage;
 
-    @GetMapping("/findAllBlog")
+    @PostMapping("/findAllBlog")
+    @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER","ROLE_NORMAL"})
     @ApiOperation(value = "查询所有博客")
-    public List<sys_blog> searchAllBlog() {
-        return sysBlogHomepage.showAllBlog();
+    public PageInfo<sys_blog> searchAllBlog(@RequestBody dividePageInfo dividePageInfo) {
+        return sysBlogHomepage.showAllBlog(dividePageInfo);
     }
 
     @PostMapping("/fuzzySearchBlog")

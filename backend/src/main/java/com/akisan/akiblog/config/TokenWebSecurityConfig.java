@@ -48,7 +48,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 对于登录接口 允许匿名访问
                 .antMatchers("/login/**","/home/**").anonymous()
                 //放行swagger
-                .antMatchers("/swagger-ui.html","/swagger-resources/**","/webjars/**","/v2/**","/api/**","/doc.html","/roleOrganize/searchUserRole").permitAll()
+                .antMatchers("/swagger-ui.html","/swagger-resources/**","/webjars/**","/v2/**","/api/**","/doc.html","/roleOrganize/searchUserRole","/home/**").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
                 http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);

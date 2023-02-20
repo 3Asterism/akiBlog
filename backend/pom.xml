@@ -103,6 +103,13 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.33</version>
 		</dependency>
+		<!--mybatis分页插件-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.8</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

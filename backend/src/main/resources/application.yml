@@ -5,20 +5,20 @@ server:
     include-exception: true
     include-message: always
 
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8
-    username: root
-    password: '!Baicaiin33'
-##现场环境
-
 #spring:
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8
 #    username: root
-#    password: 123456
+#    password: '!Baicaiin33'
+##现场环境
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8
+    username: root
+    password: 123456
 ###测试环境
 
   mvc:
