@@ -64,6 +64,10 @@ public class sysUserRegisterImpl implements sysUserRegister {
         sys_userMapper.updateUserOnlineStatus(sys.getUserName());
         Map<String,String> map = new HashMap<>();
         map.put("token",jwt);
+        map.put("userid",sys_user.getUserid().toString());
+        map.put("password",sys_user.getPassword());
+        map.put("nickname",sys_user.getNickname());
+        map.put("username",sys_user.getUsername());
         return new ResponseResult(200,"登陆成功",map);
     }
 
