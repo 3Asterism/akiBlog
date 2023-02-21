@@ -2,14 +2,15 @@
 个人博客  
 后端:842384412@qq.com Aki  
 前端:976875730@qq.com 蓝酱  
-目前开发进度:40%  
+目前开发进度:70%  
   
 已完成功能  
-注册 登录 后端(true) 前端(false)  
-首页 查询/模糊查询 后端(true) 前端(false)  
+注册 登录 后端(true) 前端(true)  
+首页 查询/模糊查询 后端(true) 前端(true)  
 博客增删改查 后端(true) 前端(false)  
-权限模块 后端(true) 前端(false)  
+权限模块 后端(true) 前端(true)  
 搜图模块 后端(true) 前端(true)  
+留言板模块 后端(true) 前端(true)
     
     
 默认后端地址:localhost:8080
@@ -17,7 +18,12 @@
 默认数据库地址:jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2b8  
 后端部署47.100.215.126:8080/doc.html  
   
-![image](https://user-images.githubusercontent.com/72266886/206615371-e852ade2-372c-4b8d-b714-c72e6329ccc8.png)
+  
+![image](https://user-images.githubusercontent.com/72266886/220292779-021903dd-c181-44e5-8938-f9e04d411671.png)
+
+  
+![image](https://user-images.githubusercontent.com/72266886/220292462-b1a69167-a393-4e54-a3bd-9a86ab0eb5d7.png)
+
   
   
   
