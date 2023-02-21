@@ -22,6 +22,9 @@ public class usr_comment_board {
     @ApiModelProperty(value = "留言板内容")
     private String boardcontent;
 
+    @ApiModelProperty(value = "用户名称")
+    private String nickname;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "留言创建时间")
     private Date createtime;

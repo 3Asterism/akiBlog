@@ -6,10 +6,12 @@
         <result column="userid" property="userid"/>
         <result column="boardcontent" property="boardcontent"/>
         <result column="createtime" property="createtime"/>
+        <result column="username" property="username"/>
     </resultMap>
     <select id="findAllBoard" resultMap="BaseResultMap">
-        SELECT *
-        FROM usr_comment_board
+        SELECT usr_comment_board.boardid,usr_comment_board.userid,usr_comment_board.boardcontent,usr_comment_board.createtime,sys_user.nickname
+        FROM usr_comment_board,sys_user
+        WHERE usr_comment_board.userid = sys_user.userid
         ORDER BY createtime DESC
     </select>
 
