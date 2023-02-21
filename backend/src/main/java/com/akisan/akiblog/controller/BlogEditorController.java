@@ -3,6 +3,7 @@ package com.akisan.akiblog.controller;
 import com.akisan.akiblog.common.resultForRequestConstant;
 import com.akisan.akiblog.entity.sys_blog;
 import com.akisan.akiblog.pojo.deleteBlogByBlogIdInfo;
+import com.akisan.akiblog.pojo.searchBlogByIdInfo;
 import com.akisan.akiblog.pojo.searchBlogByUserIdInfo;
 import com.akisan.akiblog.service.Impl.sysBlogEditPageImpl;
 import io.swagger.annotations.Api;
@@ -50,5 +51,11 @@ public class BlogEditorController {
     @ApiOperation(value = "通过用户id查找博客")
     public List<sys_blog> searchBlog(@RequestBody searchBlogByUserIdInfo searchBlogByUserIdInfo) {
         return sysBlogEditPage.searchBlog(searchBlogByUserIdInfo);
+    }
+
+    @PostMapping("/searchBlogById")
+    @ApiOperation(value = "通过博客id查找博客")
+    public List<sys_blog> searchBlogById(@RequestBody searchBlogByIdInfo searchBlogByIdInfo) {
+        return sysBlogEditPage.searchBlogById(searchBlogByIdInfo);
     }
 }

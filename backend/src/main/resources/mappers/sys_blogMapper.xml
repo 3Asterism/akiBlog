@@ -48,4 +48,12 @@
         WHERE blogtitle LIKE CONCAT('%', #{getFuzzySearchInfo.searchContent}, '%')
         ORDER BY createtime DESC
     </select>
+
+    <select id="searchBlogById" resultMap="BaseResultMap">
+        SELECT * FROM sys_blog WHERE 1=1
+        <if test="searchBlogByIdInfo.blogid != null">
+            AND blogid = #{searchBlogByIdInfo.blogid}
+        </if>
+        ORDER BY createtime DESC
+    </select>
 </mapper>

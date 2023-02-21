@@ -21,7 +21,6 @@ public class usrBoardController {
     usrBoardServiceImpl usrBoardServiceImpl;
 
     @PostMapping("/findAllBoard")
-    @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER","ROLE_NORMAL"})
     @ApiOperation(value = "查询所有留言板")
     public PageInfo<usr_comment_board> findAllBoard(@RequestBody dividePageInfo dividePageInfo) {
         return usrBoardServiceImpl.findAllBoard(dividePageInfo);

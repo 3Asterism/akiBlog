@@ -22,7 +22,6 @@ public class HomepageController {
     private sysBlogHomepageImpl sysBlogHomepage;
 
     @PostMapping("/findAllBlog")
-    @Secured({"ROLE_CODER","ROLE_ADMIN","ROLE_USER","ROLE_NORMAL"})
     @ApiOperation(value = "查询所有博客")
     public PageInfo<sys_blog> searchAllBlog(@RequestBody dividePageInfo dividePageInfo) {
         return sysBlogHomepage.showAllBlog(dividePageInfo);

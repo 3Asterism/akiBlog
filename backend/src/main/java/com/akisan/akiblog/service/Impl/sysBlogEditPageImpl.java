@@ -3,6 +3,7 @@ package com.akisan.akiblog.service.Impl;
 import com.akisan.akiblog.entity.sys_blog;
 import com.akisan.akiblog.mapper.sys_blogMapper;
 import com.akisan.akiblog.pojo.deleteBlogByBlogIdInfo;
+import com.akisan.akiblog.pojo.searchBlogByIdInfo;
 import com.akisan.akiblog.pojo.searchBlogByUserIdInfo;
 import com.akisan.akiblog.service.sysBlogEditPage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class sysBlogEditPageImpl implements sysBlogEditPage {
     @Override
     public List<sys_blog> searchBlog(searchBlogByUserIdInfo searchBlogByUserIdInfo) {
         return sysBlogMapper.searchBlog(searchBlogByUserIdInfo);
+    }
+
+    @Override
+    public List<sys_blog> searchBlogById(searchBlogByIdInfo searchBlogByIdInfo) {
+        return sysBlogMapper.searchBlogById(searchBlogByIdInfo);
     }
 }
