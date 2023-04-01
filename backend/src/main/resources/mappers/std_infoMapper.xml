@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.std_infoMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.std_info">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="classname" property="classname"/>
+        <result column="inschool" property="inschool"/>
+        <result column="passrate" property="passrate"/>
+        <result column="actvrate" property="actvrate"/>
+    </resultMap>
+
+    <select id="getStdScoreAlarm" resultMap="BaseResultMap">
+        SELECT id, name, passrate
+        FROM std_info
+        WHERE 1=1
+        AND passrate <![CDATA[ < ]]> 60
+    </select>
+
+
+</mapper>
