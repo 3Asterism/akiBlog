@@ -13,21 +13,21 @@ server:
 #    password: '!Baicaiin33'
 ##现场环境
 
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf8
-#    username: root
-#    password: 123456
-###测试环境
-
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf8
     username: root
-    password: 'baicaiin33'
+    password: 123456
+###测试环境
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password: 'baicaiin33'
   ##毕设环境
 
 
