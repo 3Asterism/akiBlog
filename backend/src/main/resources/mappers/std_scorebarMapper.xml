@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.akisan.akiblog.mapper.std_scorebarMapper">
+    <resultMap id="BaseResultMap" type="com.akisan.akiblog.entity.std_scorebar">
+        <id column="id" property="id"/>
+        <result column="avgscore" property="avgscore"/>
+        <result column="academy" property="academy"/>
+    </resultMap>
+
+    <select id="getStdScoreAlarm" resultMap="BaseResultMap">
+        SELECT id, avgscore, academy
+        FROM std_scorebar
+        ORDER BY avgscore
+    </select>
+
+</mapper>
