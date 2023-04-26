@@ -19,5 +19,7 @@ public class std_allinfo {
     @ApiModelProperty(value = "学生是否在校 1是0否")
     private String inschool;
 
+    @ApiModelProperty(value = "学生是否在校 1是0否")
+    private String academy;
 
 }
