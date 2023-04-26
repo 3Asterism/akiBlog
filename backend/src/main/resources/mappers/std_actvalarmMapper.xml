@@ -6,6 +6,7 @@
         <result column="stdid" property="stdid"/>
         <result column="name" property="name"/>
         <result column="ifattempt" property="ifattempt"/>
+        <result column="result" property="result"/>
     </resultMap>
 
     <select id="alarmResult" resultMap="BaseResultMap">

@@ -8,13 +8,14 @@
         <result column="inschool" property="inschool"/>
         <result column="passrate" property="passrate"/>
         <result column="actvrate" property="actvrate"/>
+        <result column="result" property="result"/>
     </resultMap>
 
     <select id="getStdScoreAlarm" resultMap="BaseResultMap">
-        SELECT id, name, passrate
+        SELECT id, name, passrate, result
         FROM std_info
         WHERE 1=1
-        AND passrate <![CDATA[ < ]]> 60
+        AND passrate <![CDATA[ = ]]> "Fail"
     </select>
 
 

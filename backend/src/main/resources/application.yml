@@ -5,12 +5,12 @@ server:
     include-exception: true
     include-message: always
 
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: '!Baicaiin33'
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password: '!Baicaiin33'
 ##现场环境
 
 #spring:
@@ -29,6 +29,14 @@ spring:
 #    username: root
 #    password: 'baicaiin33'
   ##毕设环境
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.100.215.126:3306/testdb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: '!Baicaiin33'
+  #macOS环境
 
 
   mvc:

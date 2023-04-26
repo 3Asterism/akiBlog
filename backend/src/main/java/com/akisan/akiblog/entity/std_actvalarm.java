@@ -23,4 +23,7 @@ public class std_actvalarm {
     @ApiModelProperty(value = "学生活动参与率是否足够 1是0否")
     private Integer ifattempt;
 
+    @ApiModelProperty(value = "报警原因")
+    private String result;
+
 }
