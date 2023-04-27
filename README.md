@@ -1,13 +1,15 @@
 # akiBlog
 个人博客  
 后端:842384412@qq.com Aki  
-前端:976875730@qq.com 蓝酱  
-目前开发进度:80%  
+前端:976875730@qq.com 蓝酱   
+  
+后续增加功能未定
+  
   
 已完成功能  
 注册 登录 后端(true) 前端(true)  
 首页 查询/模糊查询 后端(true) 前端(true)  
-博客增删改查 后端(true) 前端(false)  
+博客增删改查 后端(true) 前端(true)  
 权限模块 后端(true) 前端(true)  
 搜图模块 后端(true) 前端(true)  
 留言板模块 后端(true) 前端(true)
